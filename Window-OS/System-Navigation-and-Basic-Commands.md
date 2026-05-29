@@ -200,17 +200,27 @@ cat .\important_doc.txt
 ```
 
 `cat` stands for **concatenate**.
-
-
-## Useful Notes
-
-* PowerShell commands are generally case-insensitive.
-* Use `Tab` for auto-completion.
-* Use `Get-Help <command>` to learn more about any command.
-
-Example:
-
+#### `more`
+more command will get the contents of the file, ​but will pause once it fills the terminal window.
 ```powershell
-Get-Help cp
+more .\important_doc.txt
 ```
+we can use different keys for to read file further **The Enter key** advances the file by one line. ​​**Space** advances the file by one page.  ​The **Q key** allows you to ​quit out of more and go back to your shell.
+
+#### `Head`
+head command will give the first few lines of the file you want to see.
+```powershell
+cat .\important_doc.txt -Head 10
+```
+This will show us the first 10 lines of a file.
+
+#### `Tail`
+tail command give last lines of file.
+```powershell
+cat .\important_doc.txt -Tail 10
+```
+
+This will show the last 10 lines of a file. 
+
+
 
