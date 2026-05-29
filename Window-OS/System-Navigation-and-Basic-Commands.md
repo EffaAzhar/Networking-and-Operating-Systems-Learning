@@ -198,7 +198,6 @@ Displays the contents of a file.
 ```powershell
 cat .\important_doc.txt
 ```
-
 `cat` stands for **concatenate**.
 #### `more`
 more command will get the contents of the file, ​but will pause once it fills the terminal window.
@@ -295,7 +294,7 @@ Output:
 belt
 ```
 The `>>` operator preserves the existing content and adds new text to the end of the file.
- 
+![Append Operator Example](screenshots/powershell-append-operator.png)
 
 
 
