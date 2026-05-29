@@ -241,7 +241,18 @@ ls 'C:\Program Files' -Recurse -Filter *.exe
 This command will give all executable files. The **asterisks** mean match anything and the **.exe** is the file extension for ​executable files in Windows. here is the screenshot of this command taken from window VM. 
 ![Searching for executable files](screenshots/ls-recurse-filter-exe.png)
 
+## Windows: Input, Output and Pipelines
+### `>`
 
+The greater-than symbol (`>`) is a redirection operator. It allows you to redirect command output to a file instead of displaying it on the screen.If the file does not exist, PowerShell automatically creates it and saves the output inside the file.
+
+```powershell
+Get-Process > processes.txt
+```
+The command above saves the output of `Get-Process` into a file named `processes.txt`.
+
+
+ 
 
 
 
