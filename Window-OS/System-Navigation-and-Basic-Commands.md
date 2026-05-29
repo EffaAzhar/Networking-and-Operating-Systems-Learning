@@ -222,5 +222,24 @@ cat .\important_doc.txt -Tail 10
 
 This will show the last 10 lines of a file. 
 
+## Searching With in File
+### `Select-Search`
+This command search for ​text that matches a pattern you provide. ​This could be a word, part of a word, a phrase or more complicated patterns that ​are described using a pattern matching language called **regular expressions.**
+```powershell
+Select-Search cow farm.txt
+```
+Select-String found cow and it tells you the file and ​line number where it found it.  wildcard character asterisk (*) ​we can use that here to search anything in all the files at once.
+```powershell
+​Select-Search cow *.txt
+```
+## Searching Within Directories
+### `-Filter`
+Filter parameter will filter the results for ​file names that match a pattern. 
+```powershell
+ls 'C:\Program Files' -Recurse -Filter *.exe
+```
+This command will give all executable files. The **asterisks** mean match anything and the **.exe** is the file extension for ​executable files in Windows. here is the screenshot of this command taken from window VM. 
+
+
 
 
