@@ -282,6 +282,19 @@ The command then worked successfully and the file contents were displayed.
 
 ![Redirect output to file](screenshots/redirect-output-to-file.png)
 
+### `>>`
+`>` it overwrites the existing content with the given output. To avoid overwriting we use `>>` append operator it adds given output to the file without overwriting the previous content. Append additional content:
+'''powershell
+echo belt >> dog.txt
+```
+Display the contents of the file:
+```cat .\dog.txt
+```
+Output:
+```woof
+belt
+```
+The `>>` operator preserves the existing content and adds new text to the end of the file.
  
 
 
