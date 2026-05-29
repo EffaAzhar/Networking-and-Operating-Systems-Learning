@@ -250,7 +250,37 @@ The greater-than symbol (`>`) is a redirection operator. It allows you to redire
 Get-Process > processes.txt
 ```
 The command above saves the output of `Get-Process` into a file named `processes.txt`.
+#### Troubleshooting Example
 
+While following the course, I received an `Access Denied` error when attempting to write to `dog.txt`:
+```powershell
+echo woof > dog.txt
+```
+
+After investigating the issue, I discovered that `dog.txt` had been created as a **directory** rather than a file.
+```powershell
+Get-Item dog.txt | Format-List Attributes
+```
+
+Output:
+```text
+Attributes : Directory
+```
+
+I removed the directory and recreated `dog.txt` as a text file:
+```powershell
+rm dog.txt -Recurse
+echo woof > dog.txt
+cat .\dog.txt
+```
+
+Output:
+```text
+woof
+```
+The command then worked successfully and the file contents were displayed.
+
+![Redirect output to file](screenshots/redirect-output-to-file.png)
 
  
 
