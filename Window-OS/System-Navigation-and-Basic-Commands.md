@@ -239,6 +239,9 @@ Filter parameter will filter the results for ​file names that match a pattern.
 ls 'C:\Program Files' -Recurse -Filter *.exe
 ```
 This command will give all executable files. The **asterisks** mean match anything and the **.exe** is the file extension for ​executable files in Windows. here is the screenshot of this command taken from window VM. 
+![Searching for executable files](screenshots/ls-recurse-filter-exe.png)
+
+
 
 
 
