@@ -296,6 +296,29 @@ belt
 The `>>` operator preserves the existing content and adds new text to the end of the file.
 ![Append Operator Example](screenshots/powershell-append-operator.png)
 
+### `Pipes and Filtering Output`
+
+The pipe operator (`|`) sends the output of one command as input to another command. The output of cat dog.txt becomes the input of Select-String lt
 
 
+```powershell
+cat dog.txt | Select-String lt
+```
+
+Output:
+
+```text
+belt
+salt
+melt
+```
+
+This command displays only the lines that contain the text `lt`. The next command will overwrite the output of Select-String lt into a new file lt_words.txt.
+```powershell
+cat dog.txt | Select-String lt > lt_words.txt
+```
+So we can use several simple tools and ​combine them together to do complex tasks.
+![Select String Filtering](screenshots/powershell-pipeline-select-string.png)
+Mistakenly i wrote the file name incorrect that's why there was an error while displaying the output into a new file lt_words.txt.
+![Select String Filtering](screenshots/Troubleshoot-powershell-pipeline-select-string.png)
 
