@@ -1,18 +1,139 @@
-## Navigating the System 
-# List Directories
-​The main directory that all others stem from is called the root directory. Following are important the commands:
-- **ls /**      : It will list all the directories that are listed under the root directory.
-- **ls --help** : It gives you a description of what the command does and it tells you what format to put the command in.
-- **ls -l /**   : -l flag shows detailed information about files and ​folders in the format of a long list. ​
-- **ls -al /**  : -a (all) falg  shows all the files in the directory including the hidden files. You can hide a file or directory by pre pending a dot to it.
+# Linux Commands and System Navigation
+This document contains Linux commands practiced while learning Ubuntu 24.04 and operating systems concepts.
 
-# Changing Directories
-- **pwd** : shows us the current path we are in
-- **
-## File and Text manipulation
-- **cat**  :we can also use the cat command to view a document. **cat impotant_doc.txt** it will open the document.
-- **less** : The less command is a Linux terminal pager that shows a file's contents one screen at a time. It is useful when dealing with a large text file because it doesn't load the entire file. Some of the most common keys use to navigate this tool are the **up and ​down keys, page up and page down**. ​**g**, this moves to the beginning of a file. ​You can see now we're at the beginning, ​capital **G** this moves to the end of a text file.**/word_search** in less if you type / and follow the desire word you want to search you can find that word highlighted in all document.​ **Q** this allows you to quit out of less and go back to your shell.
-- **head** :show you the first ten lines of the file.
-- **tail**:show you the last ten lines of the file.
-- **nano**: To edit a file in nano, ​just type nano then the filename such as ​**>nano my_file.txt** At the bottom of the screen there few options **Control G** ​which helps open up a help page and **Control X** ​which is used when you want to save ​your work or exit from nano.
-- **grep**: use it to search within the file **grep cow animal.txt** it will give you cow word in animal.txt file. asterisk wildcard command here >grep cow* _animal.txt and ​you can see that it found cow in all files name animal.
+## List Directories
+### Command
+
+```bash
+ls /
+```
+
+Lists all directories and files located under the root (`/`) directory.
+
+### Command
+
+```bash
+ls --help
+```
+Displays help information and available options for the `ls` command.
+
+### Command
+
+```bash
+ls -l /
+```
+Displays files and directories in long list format, including:
+* Permissions
+* Owner
+* Group
+* File size
+* Modification date
+* 
+### Command
+
+```bash
+ls -al /
+```
+Displays all files, including hidden files and directories.
+Hidden files in Linux begin with a dot (`.`).
+Example:
+```text
+.bashrc
+.profile
+```
+
+## Print Working Directory
+### Command
+
+```bash
+pwd
+```
+Displays the current directory path.
+
+# File and Text Manipulation
+
+## Display File Contents
+
+### `cat` Command
+
+```bash
+cat important_doc.txt
+```
+Displays the contents of a file in the terminal.
+
+## View Large Files
+
+### `less` Command
+
+```bash
+less important_doc.txt
+```
+Displays file contents one screen at a time.
+
+### Useful Navigation Keys
+
+| Key                 | Function                  |
+| ------------------- | ------------------------- |
+| Up / Down           | Move line by line         |
+| Page Up / Page Down | Move by page              |
+| g                   | Jump to beginning of file |
+| G                   | Jump to end of file       |
+| /word               | Search for a word         |
+| q                   | Quit less                 |
+
+
+### `head, Command
+
+```bash
+head important_doc.txt
+```
+Displays the first 10 lines of a file.
+
+### `tail` Command
+
+```bash
+tail important_doc.txt
+```
+Displays the last 10 lines of a file.
+
+## Edit Files Using Nano
+
+### Command
+
+```bash
+nano my_file.txt
+```
+Opens a file for editing using the Nano text editor.
+
+### Useful Shortcuts
+
+| Shortcut | Function  |
+| -------- | --------- |
+| Ctrl + G | Help menu |
+| Ctrl + X | Exit Nano |
+| Ctrl + O | Save file |
+
+
+## Search Inside Files
+
+### `grep` Command
+`grep` is commonly used for:
+
+* Log analysis
+* Security investigations
+* System administration
+* Text searching
+
+```bash
+grep cow animal.txt
+```
+Searches for the word "cow" inside the file.
+
+### Command
+
+```bash
+grep cow* animal.txt
+```
+Uses pattern matching to search for text beginning with "cow". asterisk wildcard command here >grep cow* _animal.txt and ​you can see that it found cow in all files name animal.
+
+
