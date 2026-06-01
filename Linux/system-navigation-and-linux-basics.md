@@ -136,4 +136,42 @@ grep cow* animal.txt
 ```
 Uses pattern matching to search for text beginning with "cow". asterisk wildcard command here >grep cow* _animal.txt and ​you can see that it found cow in all files name animal.
 
+## Input Output and Pipeline
+### Standard Input (stdin)
+Standard Input (stdin) is where a command receives its input. By default, this is the keyboard.
+Example
+`cat` Anything typed into the terminal is passed to cat through stdin.
+### Standard Output (stdout)
+Standard Output (stdout) is where a command sends its normal output. By default, this is the terminal screen.
+Example
+```bash
+echo "Hello Linux"
+```
+Output:
+```bash
+Hello Linux
+```
+### `>` Output Redirection
+We echo the text woof here ​but instead of sending it to our screen by default, ​we're going to redirect the output to a file ​using the standard out redirector operator. 
+this operator will create this sile and overwrite the content of the file.
 
+### `>>` Append Redirection 
+This is append operator if you donot want the to overwrite the content of the file this operator will simply add the given text into the given file.
+
+### `<` Input Redirection
+The `<` operator redirects a file to a command's standard input.
+```bash
+cat < dog.txt
+```
+Output:
+```bas
+woof
+belt
+```
+
+Both commands below display the contents of a file:
+``` bash
+cat dog.txt
+cat < dog.txt
+```
+The difference is that in the first command cat opens the file itself, while in the second command the shell redirects the file contents to cat through stdin.​
