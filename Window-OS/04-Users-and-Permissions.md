@@ -7,5 +7,5 @@ Windows uses user accounts and groups to control access to system resources.
 - **Administrator** accounts have elevated privileges and can install software, manage users, change security settings, and perform system-wide administrative tasks.
 
 The `Get-LocalUser` command displays local user accounts, while `Get-LocalGroup` displays security groups used to assign permissions and privileges.
-
+![Windows Local Users and Groups](screenshots/windows-local-users-and-groups.png)
 
