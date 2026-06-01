@@ -59,4 +59,59 @@ The entered password is stored as a SecureString, which helps protect sensitive 
 * Better suited for automation and administration scripts.
 * Commonly used by system administrators.
 
+# Managing Local User Accounts with PowerShell
+
+Windows administrators can use the `net user` command to create, modify and remove local user accounts. This functionality is used in system administration, user management and security operations.
+
+### ` net` Creating a Local User Account
+
+The following command creates a new local user account naming andrea and prompts for a password securely:
+
+```powershell
+net user andrea * /add
+```
+* `net user` manages local user accounts.
+* `andrea` is the username being created.
+* `*` prompts for a password without displaying it.
+* `/add` creates the account.
+
+The account can be verified using:
+
+```powershell
+Get-LocalUser
+```
+![Windows User Creation and Password Policy](screenshots/windows-user-creation-and-password-policy.png)
+
+**Figure 2:** Creating a local user account and verifying its creation using `Get-LocalUser`.
+
+### `/logonpasswordchg:yes` Requiring a Password Change at Next Logon
+
+Administrators can require a user to change their password when they first sign in. So new users can choose their own password.
+
+```powershell
+net user andrea /logonpasswordchg:yes
+```
+
+### Deleting a Local User Account
+
+A local user account can be removed using:
+
+```powershell
+net user andrea /del
+```
+* `/del` removes the specified local user account. The account can be verified as removed using:
+
+```powershell
+Get-LocalUser
+```
+
+![Windows User Deletion](screenshots/windows-user-deletion.png)
+
+**Figure 3:** Deleting a local user account and confirming its removal from the system.
+
+## Cybersecurity Relevance
+
+User account management is a fundamental administrative task. Security teams frequently review user accounts, enforce password policies, remove inactive accounts and verify access privileges to reduce the risk of unauthorized access.
+
+
 
