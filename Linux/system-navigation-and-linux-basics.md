@@ -154,21 +154,35 @@ Hello Linux
 ### `>` Output Redirection
 We echo the text woof here ​but instead of sending it to our screen by default, ​we're going to redirect the output to a file ​using the standard out redirector operator. 
 this operator will create this sile and overwrite the content of the file.
+```bash
+echo "woof" > dog.txt
+```
+The output is woof in dog.txt
+Data Flow
+echo → stdout → dog.txt
 
 ### `>>` Append Redirection 
 This is append operator if you donot want the to overwrite the content of the file this operator will simply add the given text into the given file.
-
+```bash
+echo "woof" > dog.txt
+echo "woof" >> dog.txt
+```
+Contents of dog.txt:
+woof
+belt
 ### `<` Input Redirection
 The `<` operator redirects a file to a command's standard input.
 ```bash
 cat < dog.txt
 ```
 Output:
-```bas
+```bash
 woof
 belt
 ```
+![Input and Output Redirection Demo](screenshots/input-output-redirection-demo.png)
 
+**Figure 1:** Demonstration of Linux input and output redirection using `>`, `>>`, and `<` operators.
 Both commands below display the contents of a file:
 ``` bash
 cat dog.txt
