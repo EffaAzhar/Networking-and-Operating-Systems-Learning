@@ -148,7 +148,7 @@ A folder may allow:
 * Users: Read and Execute
 * Guests: No Access
   
-## System Access Control Lists (SACLs)
+### System Access Control Lists (SACLs)
 
 A SACL is used for auditing and monitoring access to resources. SACL records security events. These events can be reviewed in the Windows Event Viewer and are useful for security monitoring and incident investigations. Security events such as:
 
@@ -157,7 +157,7 @@ A SACL is used for auditing and monitoring access to resources. SACL records sec
 * File modifications
 * Permission changes
 
-### Cybersecurity Relevance
+#### Cybersecurity Relevance
 SACLs help security teams:
 
 * Detect unauthorized access attempts
@@ -190,7 +190,7 @@ C:\CyberLab BUILTIN\Administrators:(F)
 
 
 
-## Cybersecurity Relevance
+### Cybersecurity Relevance
 
 Understanding ACLs is important for cybersecurity professionals because misconfigured permissions are a common cause of security incidents.
 
@@ -202,4 +202,73 @@ Proper permission management helps:
 * Limit unauthorized access
 * Improve security monitoring and auditing
 
+## Managing Permissions with ACLs and ICACLS
+
+The `icacls` command is used to view and manage file and folder permissions from PowerShell or Command Prompt.
+
+### 1. Common Path Error
+
+```powershell
+icacls C:\CyberLab-01
+```
+
+This command failed because the folder `C:\CyberLab-01` did not exist.
+
+![ICACLS Path Error](screenshots/windows-icacls-path-error.png)
+
+**Figure 4:** `icacls` returns an error when the specified file or folder path does not exist.
+
+
+### 2. Creating a Test Folder
+
+To safely practise permissions, I created a test folder inside the user profile:
+
+```powershell
+mkdir C:\Users\CyberLab-01\CyberLab
+```
+
+![Create CyberLab Folder](screenshots/windows-create-cyberlab-folder.png)
+
+**Figure 5:** Creating a test folder called `CyberLab` for permission management practice.
+
+
+### 3. Viewing Folder Permissions
+
+The following command displays the current permissions on the folder:
+
+```powershell
+icacls C:\Users\CyberLab-01\CyberLab
+```
+
+![View Folder ACLs](screenshots/windows-view-folder-acls.png)
+
+**Figure 6:** Viewing existing ACL permissions on the `CyberLab` folder using `icacls`.
+
+### 4. Granting and Removing Permissions
+
+The following command grants Full Control permission to the user `andera`:
+
+```powershell
+icacls C:\Users\CyberLab-01\CyberLab\ /grant andera:F
+```
+
+The permissions can be checked again using:
+
+```powershell
+icacls C:\Users\CyberLab-01\CyberLab\
+```
+
+The following command removes the explicit permission assigned to `andrea`:
+
+```powershell
+icacls C:\Users\CyberLab-01\CyberLab\ /remove andera
+```
+
+![ICACLS Permission Management](screenshots/windows-icacls-permission-management.png)
+
+**Figure 7:** Granting Full Control permission to a user and then removing the permission using `icacls`.
+
+### Key Learning
+
+This exercise helped me understand how Windows manages file and folder permissions using ACLs. I practised viewing permissions, granting access to a user, removing access and troubleshooting path errors. This is important in cybersecurity because incorrect permissions can expose sensitive files or allow unauthorized access.
 
