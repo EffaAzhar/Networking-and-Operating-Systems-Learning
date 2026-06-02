@@ -114,4 +114,92 @@ Get-LocalUser
 User account management is a fundamental administrative task. Security teams frequently review user accounts, enforce password policies, remove inactive accounts and verify access privileges to reduce the risk of unauthorized access.
 
 
+# Windows Permissions and Access Control
+
+Windows uses Access Control Lists (ACLs) to determine which users and groups can access files, folders and other system resources. Permissions help to protect data from unauthorized access and modification.
+
+### Access Control Lists (ACLs)
+
+An Access Control List (ACL) is a collection of access control entries (ACEs) that define which users or groups can perform specific actions on an object. ACLs are attached to resources such as:
+* Files
+* Folders
+* Registry keys
+* Printers
+* Active Directory objects
+
+### Two types of ACLs:
+
+* Discretionary Access Control Lists (DACLs)
+* System Access Control Lists (SACLs)
+
+
+### Discretionary Access Control Lists (DACLs)
+
+A DACL determines who is allowed or denied access to a resource. If a user does not have the appropriate permissions defined in the DACL than the access to the resource will be denied. Examples of permissions controlled by a DACL include:
+
+* Read
+* Write
+* Modify
+* Execute
+* Full Control
+
+A folder may allow:
+* Administrators: Full Control
+* Users: Read and Execute
+* Guests: No Access
+  
+## System Access Control Lists (SACLs)
+
+A SACL is used for auditing and monitoring access to resources. SACL records security events. These events can be reviewed in the Windows Event Viewer and are useful for security monitoring and incident investigations. Security events such as:
+
+* Successful access attempts
+* Failed access attempts
+* File modifications
+* Permission changes
+
+### Cybersecurity Relevance
+SACLs help security teams:
+
+* Detect unauthorized access attempts
+* Monitor sensitive files
+* Investigate security incidents
+* Support compliance and auditing requirements
+
+## Viewing Permissions with `icacls`
+Windows provides the `icacls` command to display and manage file and folder permissions.
+
+```powershell
+icacls C:\Users\CyberLab-01\CyberLab
+```
+
+```text
+C:\CyberLab BUILTIN\Administrators:(F)
+            Users:(RX)
+            SYSTEM:(F)
+```
+
+### Permission Codes
+
+| Code | Meaning          |
+| ---- | ---------------- |
+| F    | Full Control     |
+| M    | Modify           |
+| RX   | Read and Execute |
+| R    | Read             |
+| W    | Write            |
+
+
+
+## Cybersecurity Relevance
+
+Understanding ACLs is important for cybersecurity professionals because misconfigured permissions are a common cause of security incidents.
+
+Proper permission management helps:
+
+* Enforce the principle of least privilege
+* Protect sensitive data
+* Reduce insider threats
+* Limit unauthorized access
+* Improve security monitoring and auditing
+
 
