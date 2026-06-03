@@ -178,16 +178,18 @@ C:\CyberLab BUILTIN\Administrators:(F)
             SYSTEM:(F)
 ```
 
-### Permission Codes
+## Common ICACLS Permission Flags
 
-| Code | Meaning          |
-| ---- | ---------------- |
-| F    | Full Control     |
-| M    | Modify           |
-| RX   | Read and Execute |
-| R    | Read             |
-| W    | Write            |
-
+| Flag | Meaning |
+|--------|---------|
+| F | Full Control |
+| M | Modify |
+| RX | Read and Execute |
+| R | Read |
+| W | Write |
+| I | Inherited Permission |
+| OI | Object Inherit (Files) |
+| CI | Container Inherit (Folders) |
 
 
 ### Cybersecurity Relevance
