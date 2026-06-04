@@ -55,5 +55,12 @@ Privilege management is a critical security concept. Proper use of sudo can help
 * Support the principle of least privilege.
 * Reduce the impact of accidental or malicious changes.
 
+## Viewing Linux Groups
 
+Linux stores group information in the `/etc/group` file.
 
+The following command displays all groups configured on the linux system:
+
+```bash
+cat /etc/group
+```
