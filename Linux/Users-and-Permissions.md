@@ -45,22 +45,85 @@ This indicates that commands are now being executed with full administrative pri
 
 **Figure 2:** Members of the sudo group can execute administrative commands and switch to the root account.
 
-### Cybersecurity Relevance
 
-Privilege management is a critical security concept. Proper use of sudo can help in:
+## Viewing Linux Users and Groups
 
-* Reduce unnecessary root usage.
-* Limit administrative access.
-* Improve accountability through logging.
-* Support the principle of least privilege.
-* Reduce the impact of accidental or malicious changes.
+
+Linux uses users and groups to control access to files, directories and system resources. Understanding how to view and manage users and groups is an important system administration and cybersecurity skill.
+
+## Viewing Local Users
+
+Linux stores user account information in the `/etc/passwd` file.
+
+To display all local users:
+
+```bash
+cat /etc/passwd
+```
+Example of output:
+```text
+linuxstar:x:1000:1000:Linux User:/home/linuxstar:/bin/bash
+```
+Each entry follows this format:
+
+```text
+username:x:UID:GID:comment:home_directory:shell
+```
+
+| Field          | Description                 |
+| -------------- | --------------------------- |
+| Username       | Login account name          |
+| UID            | User Identifier             |
+| GID            | Primary Group Identifier    |
+| Home Directory | User's personal directory   |
+| Shell          | Default command interpreter |
+
+
+## Displaying Usernames Only
+
+To display only usernames:
+
+```bash
+cut -d: -f1 /etc/passwd
+```
+This command extracts the first field from each entry in `/etc/passwd`.
 
 ## Viewing Linux Groups
 
 Linux stores group information in the `/etc/group` file.
 
-The following command displays all groups configured on the linux system:
+To display all groups:
 
 ```bash
 cat /etc/group
 ```
+
+output:
+
+```text
+sudo:x:27:linuxstar
+```
+Each entry follows this format:
+
+```text
+group_name:x:GID:user_list
+```
+
+| Field      | Description          |
+| ---------- | -------------------- |
+| Group Name | Name of the group    |
+| GID        | Group Identifier     |
+| User List  | Members of the group |
+
+In the example above the user `linuxstar` is a member of the `sudo` group.
+
+
+## Why Users and Groups Matter
+
+Linux uses users and groups to control access to system resources. such as
+* Restricting access to sensitive files.
+* Allowing administrative privileges through the `sudo` group.
+* Separating users based on their responsibilities.
+* Enforcing the principle of least privilege.
+
+
