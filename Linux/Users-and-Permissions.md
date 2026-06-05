@@ -188,7 +188,20 @@ Administrators use password policies to:
 * Reduce the risk of unauthorized access.
 * Support security compliance requirements.
 
+# Add New User
 
+### `sudo useradd username`
+This command cand add new user. This will set up basic configurations for the user and set up a home directory. 
+``` bash
+sudo useradd jay
+```
+this command will jay as a new user.
+
+### `sudo userdel username`
+This command will simply remove any user. For examle to remove jay as a user:
+``` bash
+sudo userdel jay
+```
 
 
 
