@@ -126,4 +126,69 @@ Linux uses users and groups to control access to system resources. such as
 * Separating users based on their responsibilities.
 * Enforcing the principle of least privilege.
 
+## Managing Passwords in Linux
+
+`passwd` command is use for managing user account passwords. Password management is an important security practice because strong authentication helps protect systems from unauthorized access.
+
+## Changing Your Own Password
+
+A user can change their own password using:
+
+```bash
+passwd
+```
+After running the command, Linux prompts for:
+
+```text
+Current password
+New password
+Retype new password
+```
+The password is not displayed while typing.
+## Changing Another User's Password
+
+Administrative users can change the password of another account using following command,
+
+```bash
+sudo passwd username
+```
+
+## Forcing a Password Change at Next Login
+
+Administrators can require a user to change their password the next time they sign in:
+
+```bash
+sudo passwd -e username
+```
+The `-e` option expires the current password immediately.
+
+An alternative method is:
+
+```bash
+sudo chage -d 0 username
+```
+This forces the user to create a new password during their next login.
+
+## The /etc/shadow File
+
+Linux stores password hashes in the `/etc/shadow` file. Unlike `/etc/passwd`, the `/etc/shadow` file contains password hashes and password policy information.It is owned by the root user and is protected because it contains sensitive authentication information. Administrative privileges are required to open this file. Protecting this file is critical because exposure of password hashes may allow attackers to attempt offline password cracking attacks.
+
+To view the file:
+
+```bash
+sudo cat /etc/shadow
+```
+## Cybersecurity Relevance
+
+Password security is a fundamental component of system security.
+Administrators use password policies to:
+* Enforce strong authentication.
+* Require password changes.
+* Protect sensitive accounts.
+* Reduce the risk of unauthorized access.
+* Support security compliance requirements.
+
+
+
+
 
