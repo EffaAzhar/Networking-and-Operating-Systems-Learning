@@ -132,11 +132,91 @@ In this example:
 * `chmod 421 dog.txt` applies custom permissions using numeric notation.
 * `ls -l` is used to verify the permission changes after each command.
 
+# Managing File Ownership with chown
+
+In Linux, every file and directory has an owner and a group. The `chown` command is used to change file ownership and is commonly used by administrators to manage access to files and system resources.
+
+### Viewing Current Ownership
+
+File ownership can be displayed using:
+
+```bash
+ls -l
+```
+
+Example:
+
+```text
+-r---w---x 1 linuxstar linuxstar 10 Jun 1 11:26 dog.txt
+```
+* Owner = `linuxstar`
+* Group = `linuxstar`
+
+
+
+### Changing Ownership
+
+I attempted to change ownership of `dog.txt` to a user named `andrea`. However, the command failed because the user account did not exist on the system.
+
+```bash
+sudo chown andrea dog.txt
+```
+Output:
+
+```text
+chown: invalid user: 'andrea'
+```
+
+![CHOWN Invalid User Error](screenshots/linux-chown-invalid-user-error.png)
+
+*Figure 1: Attempting to change file ownership to a user that does not exist on the system.*
+
+
+### Creating a New User
+
+To resolve the issue, I created a new user account:
+
+```bash
+sudo adduser andrea
+```
+
+### Changing File Ownership
+
+The ownership of `dog.txt` was changed using:
+
+```bash
+sudo chown andrea dog.txt
+```
+The ownership was verified using:
+
+```bash
+ls -l
+```
+
+Output:
+
+```text
+-r---w---x 1 andrea linuxstar 10 Jun 1 11:26 dog.txt
+```
+
+
+![Changing File Ownership with chown](screenshots/linux-change-file-ownership-with-chown.png)
+
+*Figure 2: Creating a new user and successfully changing file ownership using the chown command.*
+
+
+
+## Cybersecurity Relevance
+
+File ownership is an important security control in Linux systems. Proper ownership management helps ensure that only authorized users can modify or manage files. Misconfigured ownership may lead to unauthorized access or accidental modification of sensitive data.
+
 ## What I Learned
 
-* Linux permissions are divided between owner, group, and others.
-* The `chmod` command can modify permissions using symbolic notation.
-* Numeric notation provides a faster way to assign permissions.
-* File permissions are an important security control that help restrict unauthorized access to files and directories.
-
-  
+- Every file in Linux has an owner and a group.
+- `chown` is used to change file ownership.
+- The target user must exist before ownership can be assigned.
+- `adduser` can be used to create new user accounts.
+- `ls -l` can be used to verify ownership and permissions.
+- `chmod` is used to modify file permissions for owners, groups, and others.
+- `chmod` supports both symbolic notation (`u+x`, `g-w`) and numeric notation (`755`, `644`, `421`).
+- Proper ownership and permission management are important security controls in Linux systems.
