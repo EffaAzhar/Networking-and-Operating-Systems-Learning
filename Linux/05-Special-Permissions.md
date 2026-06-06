@@ -27,6 +27,11 @@ ls -l /usr/bin/passwd
 
 The `s` in the owner's execute position indicates that SetUID is enabled.
 
+![SetUID on passwd Command](screenshots/linux-suid-passwd-command.png)
+
+*Figure 1: Viewing the SetUID permission on the passwd command.*
+
+
 #### Enable SetUID
 
 ```bash
@@ -89,6 +94,8 @@ The Sticky Bit prevents users from deleting files owned by other users inside a 
 ls -ld /tmp
 ```
 
+![Sticky Bit on tmp Directory](screenshots/linux-sticky-bit-tmp-directory.png)
+*Figure 2: Viewing the Sticky Bit on the shared /tmp directory.*
 Example output:
 
 ```text
