@@ -216,7 +216,8 @@ During my lab practice I discovered that finding a package does not mean it is i
 ```powershell
 Find-Package sysinternals
 ```
-![Package Not Installed](Screenshots/package-not-installed.png)
+
+
 ### Installing Packages
 
 PackageManagement downloads and installs the selected package from the configured source. I run following command To install a package:
@@ -224,7 +225,7 @@ PackageManagement downloads and installs the selected package from the configure
 ```powershell
 Install-Package -Name sysinternals
 ```
-![Install Package](Screenshots/install-package-sysinternals.png)
+
 
 ## Other Package Managers
 ### Chocolatey Package Manager
