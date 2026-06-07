@@ -79,4 +79,98 @@ winget uninstall Microsoft.VisualStudioCode
 
 Removes Visual Studio Code from the system.
 
+# Package Dependencies, DLLs, Shared Code, and Side-by-Side (SxS)
+
+### Package Dependencies
+
+Many applications require additional software components to function correctly. These required components are known as **dependencies**.
+
+Examples include:
+
+* Microsoft Visual C++ Redistributables
+* .NET Framework
+* .NET Runtime
+* DirectX Components
+
+If a required dependency is missing, an application may fail to install or run correctly.
+### Dynamic Link Libraries (DLLs)
+
+Windows applications often use **Dynamic Link Libraries (DLLs)**. A DLL contains code and functions that can be shared by multiple applications.
+
+Examples:
+
+```text
+kernel32.dll
+user32.dll
+ntdll.dll
+```
+
+Benefits of DLLs:
+
+* Reduce duplication of code.
+* Save disk space.
+* Allow multiple programs to share common functionality.
+* Simplify software updates.
+### Shared Code
+
+Shared code refers to software components used by multiple applications. Both applications can use the same DLL rather than storing separate copies of identical code.
+
+For example:
+
+```text
+Application A
+        ↓
+     Shared DLL
+        ↑
+Application B
+```
+### DLL dependencies can be broken when
+
+- Overwriting DLL dependencies -  an application to overwrite the DLL dependency of another app causing the other app to fail. 
+- Deleting DLL files
+- Applying upgrades or fixes to DLLs can cause a problem called “DLL hell” where an application installs a new version of the shared DLL for a computer system.
+- Rolling back to previous DLL versions - A user may try to reinstall an older application that stopped working after a shared DLL file was upgraded by a newer app. this reinstallation of the app that uses the old DLL version can overwrite the new DLL file. This DLL version roll back can cause the newer app with the shared DLL dependency to fail the next time it tries to run.
+### Fixing DLL problems
+
+#### Side-by-Side Assemblies (SxS)
+
+Microsoft introduced **Side-by-Side (SxS)** technology to reduce DLL conflicts. Instead of forcing applications to share a single DLL version, Windows can store multiple versions simultaneously.
+
+For Example:
+
+```text
+Application A → DLL Version 1
+Application B → DLL Version 2
+```
+
+Both applications continue to function because each uses the version it was designed for.
+
+The Side-by-Side component store is located in:
+
+```text
+C:\Windows\WinSxS
+```
+#### .NET Assemblies and the Global Assembly Cache (GAC)
+
+An assembly is the basic building block of a .NET application. It contains compiled code, metadata, version information, and resources required by an application.
+
+Assemblies are commonly stored as:
+
+- `.dll` files
+- `.exe` files
+
+Examples:
+
+```text
+System.dll
+System.Core.dll
+Application.exe
+```
+their location is following **C:\Windows\Microsoft.NET\assembly** 
+
+#### Difference Between .NET Assemblies and Side-by-Side (SxS)
+
+.NET assemblies are reusable software components used by .NET applications. Shared assemblies can be stored in the Global Assembly Cache (GAC) so that multiple applications can use the same code.
+
+Side-by-Side (SxS) is a Windows technology that allows multiple versions of the same component or DLL to exist on a system at the same time. This helps prevent compatibility issues known as DLL Hell.
 
