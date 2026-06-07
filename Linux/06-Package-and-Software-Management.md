@@ -146,3 +146,12 @@ sudo apt upgrade
 ```
 
 This installs the latest available versions of installed software.
+## Updating Operating System
+when you run apt upgrade, it doesn't upgrade the core operating system. To upgrade OS first check version of kernel you are using by following command.
+```bash
+uname -r
+```
+Then run `sudo apt upgrade` command. then to upgrade OS following command will be used.
+```bash
+sudo apt full-upgrade
+```
