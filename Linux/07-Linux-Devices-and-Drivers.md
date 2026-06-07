@@ -1,8 +1,18 @@
 # Linux Devices and Drivers
+A device is any hardware component managed by Linux, while a drive is a storage device used to store data. All drives are devices, but not all devices are drives.
 Everything is considered a file in linux. When a device is connected to your computer, ​a device file is created in the /dev directory. Following command will give the list of devices in your linux. 
 ```bash
 ls -l /dev
 ```
+A few examples of devices you may find in the /dev directory include:
+
+- /dev/sda - First SCSI drive 
+- /dev/sr0 - First optical disk drive 
+- /dev/usb - USB device
+- /dev/usbhid - USB mouse
+- /dev/usb/lp0 - USB printer
+- /dev/null - discard
+
 ![Linux Device Files](screenshots/linux-device-files-dev-directory.png)
 **Figure1**
 The first bit of file permissions tells us which type of file is, Following table tells the different symbols that differentiate betweeen different type of files:
