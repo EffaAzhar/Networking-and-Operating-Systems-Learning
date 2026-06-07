@@ -173,4 +173,83 @@ their location is following **C:\Windows\Microsoft.NET\assembly**
 .NET assemblies are reusable software components used by .NET applications. Shared assemblies can be stored in the Global Assembly Cache (GAC) so that multiple applications can use the same code.
 
 Side-by-Side (SxS) is a Windows technology that allows multiple versions of the same component or DLL to exist on a system at the same time. This helps prevent compatibility issues known as DLL Hell.
+# Package Manager
+A package manager is a tool used to install, update, configure, and remove software from a system. Instead of manually downloading software from websites, a package manager can automate the process using simple commands. 
+Windows PowerShell includes **PackageManagement**, a framework that allows software packages to be discovered, installed, updated, and removed from different package sources.
+Common package sources include:
+- Chocolatey
+- NuGet
+- PowerShell Gallery
+Package managers help administrators:
+* Install software
+* Update software
+* Remove software
+* Manage software dependencies
+* Automate software deployment
+
+
+### Finding Packages
+
+To search for a package i run following command. This command searches configured package sources and returns information about matching packages.
+
+```powershell
+Find-Package sysinternals
+```
+
+### Viewing Dependencies
+
+
+Dependencies are additional software components required for a package to function correctly. To search for a package and display any dependencies i run following command.
+
+```powershell
+Find-Package sysinternals -IncludeDependencies
+```
+### Installing Packages
+
+PackageManagement downloads and installs the selected package from the configured source. I run following command To install a package:
+
+```powershell
+Install-Package -Name sysinternals
+```
+During this lab I installed the **NuGet provider**. Package providers act as intermediaries between PackageManagement and package repositories.
+
+
+![Finding Packages and Dependencies](screenshots/find-package-sysinternals.png)
+
+## Other Package Managers
+### Chocolatey Package Manager
+
+Chocolatey is a popular third-party package manager for Windows. Chocolatey allows administrators to manage software entirely from PowerShell.
+
+Official website:
+
+```text
+https://chocolatey.org
+```
+### Common Commands
+
+Search for a package:
+
+```powershell
+choco search wireshark
+```
+
+Install a package:
+
+```powershell
+choco install wireshark
+```
+
+Upgrade a package:
+
+```powershell
+choco upgrade wireshark
+```
+
+Remove a package:
+
+```powershell
+choco uninstall wireshark
+```
+
 
