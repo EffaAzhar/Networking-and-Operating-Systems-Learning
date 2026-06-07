@@ -61,6 +61,8 @@ In my lab following is my devices list,
 | sr0                   | Virtual CD-ROM device                         |
 | loop0-loop8           | Loopback devices used by Snap packages        |
 
+![Hardware Information and Kernel Modules](screenshots/linux-lspci-lsmod-hardware-drivers.png)
+**Figure3**:execution of `lsblk`, `lspci` and `lsmod` commands
 #### `lsblk`
 Displays available storage devices, partitions, and mount points.
 
