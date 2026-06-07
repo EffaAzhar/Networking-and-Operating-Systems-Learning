@@ -11,7 +11,8 @@ Common software installation files in Windows include:
 
 ### EXE Installers
 
-Executable (`.exe`) files are the most common installation packages used in Windows. EXE installers typically provide a setup wizard that guides users through the installation process.
+Executable (`.exe`) files are the most common installation packages used in Windows. EXE installers typically provide a setup wizard that guides users through the installation process. Some EXE files use the Windows Installer service internally, while others perform custom installation tasks. Because most Windows software is closed source, users cannot normally see all actions performed during installation. Tools such as **Process Monitor (ProcMon)** from the Sysinternals Suite can be used to monitor installer activity, including file creation, registry modifications, and process activity.
+
 
 Examples:
 
@@ -28,56 +29,24 @@ For Example:
 ```text
 Wireshark.msi
 ZoomInstaller.msi
-``` 
-## `Winget` command
-
-Windows Package Manager (Winget) is a command-line tool used to install, update and remove software.
-
-#### Display Installed Software
-
-```powershell
-winget list
 ```
+An MSI package contains:
 
-Displays software currently installed on the system.
+- Installation instructions
+- Application files
+- Shortcuts
+- Registry entries
+- DLLs and shared libraries
+- Configuration data
+### Installation Tracking
 
-![Winget List](screenshots/windows-winget-list.png)
+Windows Installer records the changes made during installation and maintains information that can be used to:
 
-*Figure 1: Displaying installed software using the `winget list` command.*
-
-
-#### Search for Software
-
-```powershell
-winget search vscode
-```
-
-Searches for software packages available in the Winget repository.
-
-![Winget Search](screenshots/windows-winget-search.png)
-
-*Figure 2: Searching for available software packages using Winget.*
-
-#### Install Software
-
-```powershell
-winget install Microsoft.VisualStudioCode
-```
-
-Installs Visual Studio Code.
-
-![Winget Install](screenshots/windows-winget-install.png)
-
-*Figure 3: Installing software using the `winget install` command.*
-
-
-#### Remove Software
-
-```powershell
-winget uninstall Microsoft.VisualStudioCode
-```
-
-Removes Visual Studio Code from the system.
+- Repair damaged installations
+- Modify installed components
+- Uninstall software cleanly
+### Orca Tool
+Microsoft provides **Orca.exe**, a tool included in the Windows SDK that can be used to inspect and edit MSI packages. It allows administrators to view the tables and installation instructions stored inside an MSI file. Windows Installer reads the information stored in the MSI package and performs the installation according to predefined rules.
 
 # Package Dependencies, DLLs, Shared Code, and Side-by-Side (SxS)
 
@@ -227,8 +196,59 @@ Install-Package -Name sysinternals
 ```
 ![Installing Sysinternals Package](screenshots/install-package-sysinternals.png)
 
-## Other Package Managers
-### Chocolatey Package Manager
+# Other Package Managers
+## `Winget` command
+
+Windows Package Manager (Winget) is a command-line tool used to install, update and remove software.
+
+#### Display Installed Software
+
+```powershell
+winget list
+```
+
+Displays software currently installed on the system.
+
+![Winget List](screenshots/windows-winget-list.png)
+
+*Figure 1: Displaying installed software using the `winget list` command.*
+
+
+#### Search for Software
+
+```powershell
+winget search vscode
+```
+
+Searches for software packages available in the Winget repository.
+
+![Winget Search](screenshots/windows-winget-search.png)
+
+*Figure 2: Searching for available software packages using Winget.*
+
+#### Install Software
+
+```powershell
+winget install Microsoft.VisualStudioCode
+```
+
+Installs Visual Studio Code.
+
+![Winget Install](screenshots/windows-winget-install.png)
+
+*Figure 3: Installing software using the `winget install` command.*
+
+
+#### Remove Software
+
+```powershell
+winget uninstall Microsoft.VisualStudioCode
+```
+
+Removes Visual Studio Code from the system.
+
+
+## Chocolatey Package Manager
 
 Chocolatey is a popular third-party package manager for Windows. Chocolatey allows administrators to manage software entirely from PowerShell.
 
