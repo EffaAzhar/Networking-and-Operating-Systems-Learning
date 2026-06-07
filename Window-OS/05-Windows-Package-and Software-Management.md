@@ -204,6 +204,18 @@ Dependencies are additional software components required for a package to functi
 ```powershell
 Find-Package sysinternals -IncludeDependencies
 ```
+During this lab I installed the **NuGet provider**. Package providers act as intermediaries between PackageManagement and package repositories.
+
+
+![Finding Packages and Dependencies](screenshots/find-package-sysinternals.png)
+
+### Understanding Find-Package and Get-Package
+
+During my lab practice I discovered that finding a package does not mean it is installed.
+
+```powershell
+Find-Package sysinternals
+```
 ### Installing Packages
 
 PackageManagement downloads and installs the selected package from the configured source. I run following command To install a package:
@@ -211,10 +223,7 @@ PackageManagement downloads and installs the selected package from the configure
 ```powershell
 Install-Package -Name sysinternals
 ```
-During this lab I installed the **NuGet provider**. Package providers act as intermediaries between PackageManagement and package repositories.
 
-
-![Finding Packages and Dependencies](screenshots/find-package-sysinternals.png)
 
 ## Other Package Managers
 ### Chocolatey Package Manager
