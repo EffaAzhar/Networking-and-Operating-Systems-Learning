@@ -28,6 +28,38 @@ The `csrss.exe` process is responsible for:
 * Command-line operations
 * Parts of the Windows graphical environment
 
+## Verifying Windows Startup Processes
+
+The course introduced several important Windows startup processes including:
+
+- smss.exe
+- csrss.exe
+- winlogon.exe
+
+I verified these processes using the `tasklist` command.
+
+![Windows Startup Processes](./screenshots/windows-tasklist-processes.png)
+
+The screenshot shows these processes actively running on my Windows virtual machine, demonstrating how Windows initializes and manages critical system components after startup.
+Windows starts several important processes during boot that also noticed in the screenshot as well.
+
+| Process        | Purpose                         |
+| -------------- | ------------------------------- |
+| `smss.exe`     | Session Manager Subsystem       |
+| `csrss.exe`    | Client Server Runtime Subsystem |
+| `winlogon.exe` | User Logon Process              |
+| `services.exe` | Starts Windows Services         |
+| `lsass.exe`    | Local Security Authority        |
+| `svchost.exe`  | Hosts Windows Services          |
+| `dwm.exe`      | Desktop Window Manager          |
+
+## Viewing Processes with PowerShell
+PowerShell provides the `Get-Process` cmdlet to display currently running processes.
+```cmd
+Get-Process
+```
+The output includes information such as process name, PID, CPU usage, memory usage and handles.
+![Get-Process Output](./screenshots/windows-get-process-powershell.png)
 ## Parent and Child Processes
 
 Windows creates processes using a parent child relationship.
