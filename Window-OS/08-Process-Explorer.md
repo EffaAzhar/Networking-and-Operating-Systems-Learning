@@ -157,7 +157,17 @@ or
 ```text
 DLL Hell
 ```
+## Resource Monitoring
 
+Process Explorer can be used to monitor resource consumption by running processes.
+Resources such as following,
+
+- CPU Usage: Processor time consumed by a process.
+- Working Set: Physical memory currently assigned to a process.
+- Private Bytes: Memory allocated exclusively to a process.
+- PID: Unique Process Identifier.
+
+These metrics help administrators identify resource intensive applications and troubleshoot performance issues.
 
 ## Why Process Explorer Is Useful
 
