@@ -183,13 +183,77 @@ ls -l /proc
 ```
 
 
+# Process Signals in Linux
 
-## Key Takeaways
+Linux uses signals to communicate with running processes. Signals allow users and the operating system to stop, pause, resume, or interrupt processes.
 
-- Linux manages applications as processes.
-- Each process receives a unique PID.
-- Processes are organized in parent-child relationships.
-- `systemd` acts as the primary process manager.
-- The `/proc` filesystem exposes process information.
-- `ps` and `grep` are essential tools for monitoring and troubleshooting running processes.
+### Common Signals
+
+| Signal | Number | Purpose |
+|----------|----------|----------|
+| SIGTERM | 15 | Politely requests a process to terminate |
+| SIGKILL | 9 | Forcefully terminates a process |
+| SIGTSTP | 20 | Suspends a process |
+| SIGCONT | 18 | Resumes a suspended process |
+| SIGINT | 2 | Interrupts a process (Ctrl+C) |
+
+
+## Creating a Process
+
+I used `sleep` command  to create a simple process that remains active for 300 seconds.
+
+```bash
+sleep 300
+```
+
+The process ID (PID) was identified using:
+
+```bash
+ps -ef
+```
+
+### Evidence
+
+![Process Creation](screenshots/process-creation-sleep300.png)
+
+
+## Terminating a Process with SIGTERM
+
+The default `kill` command sends a SIGTERM signal. SIGTERM allows a process to clean up resources before shutting down.
+
+
+```bash
+kill 5004
+```
+
+### Evidence
+
+![SIGTERM](screenshots/sigterm-process-termination.png)
+
+## Forcefully Terminating a Process with SIGKILL
+
+If a process refuses to stop, SIGKILL can be used. SIGKILL immediately terminates the process and does not allow cleanup operations.
+
+
+```bash
+kill -KILL 5309
+```
+
+### Evidence
+
+![SIGKILL](screenshots/sigkill-force-termination.png)
+
+
+## Suspending a Process Using SIGTSTP
+
+A running process can be suspended using following keyboard shortcuts. This sends a SIGTSTP signal and places the process into a stopped state.
+
+```text
+Ctrl + Z
+```
+
+### Evidence
+
+![SIGTSTP](screenshots/sigtstp-process-suspended.png)
+
 
