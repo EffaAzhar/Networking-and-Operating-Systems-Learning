@@ -256,4 +256,82 @@ Ctrl + Z
 
 ![SIGTSTP](screenshots/sigtstp-process-suspended.png)
 
+# Resource Monitoring and Troubleshooting
+
+Linux provides several tools for monitoring system performance and troubleshooting resource related issues.
+
+
+### Monitoring Processes with top
+
+The `top` command provides a real time view of running processes and system resource usage. The command is useful for identifying processes that consume excessive CPU or memory resources.
+
+```bash
+top
+```
+
+Important fields:
+
+| Field | Description |
+|---------|---------|
+| PID | Process ID |
+| %CPU | CPU utilization |
+| %MEM | Memory utilization |
+| COMMAND | Process name |
+
+
+### Evidence
+
+![Top Command](screenshots/top-resource-monitoring.png)
+
+
+## Checking System Uptime
+
+The `uptime` command displays:
+
+- Current system time
+- How long the system has been running
+- Logged in users
+- Load averages
+
+```bash
+uptime
+```
+
+Example output:
+
+```text
+13:59:44 up 29 min, 1 user, load average: 0.33, 0.11, 0.09
+```
+
+Load averages represent average system load over:
+
+- 1 minute
+- 5 minutes
+- 15 minutes
+
+### Evidence
+
+![Uptime Command](screenshots/uptime-system-load.png)
+
+## Listing Open Files
+
+Linux treats many system resources as files.
+
+The `lsof` (List Open Files) command identifies files currently opened by processes.
+
+```bash
+lsof
+```
+
+To inspect files opened by a specific process:
+
+```bash
+lsof -p PID
+```
+
+This command is useful when troubleshooting issues such as:
+
+- Locked files
+- Busy devices
+- USB drives that cannot be safely removed
 
